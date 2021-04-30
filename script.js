@@ -1,4 +1,4 @@
-let paragraph = document.getElementById(`paragraph`)
+let instructionsParagraph = document.getElementById(`instructionsParagraph`)
 let messageInput = document.getElementById(`messageInput`)
 let submitButton = document.getElementById(`submitButton`)
 
@@ -11,13 +11,14 @@ submitButton.addEventListener(`click`, showBotResponse)
 
 function showBotResponse() {
 
+  instructionsParagraph.style.display = "none"
+  
   if (responseShown == false) {
-    console.log(responseShown)
-    console.log(messageInput.value)
 
     if (messageInput.value == "how are you") {
       paragraphOne.innerHTML = `You: ${messageInput.value}`
       paragraphTwo.innerHTML = `Bot: I'm doing great`
+      instructionsParagraph.style.display = "block"
     }
     else if (messageInput.value == `tell a joke`) {
       paragraphOne.innerHTML = `You: ${messageInput.value}`
@@ -32,15 +33,16 @@ function showBotResponse() {
     else {
       paragraphOne.innerHTML = `You: ${messageInput.value}`
       paragraphTwo.innerHTML = `Bot: I don't understand you`
+      instructionsParagraph.style.display = "block"
     }
   }
   else {
+
     if (messageInput.value == `what`) {
       paragraphOne.innerHTML = `You: ${messageInput.value}`
       paragraphTwo.innerHTML = `Bot: two kilo mockingbird`
       responseShown = false
     }
-
     else if (messageInput.value == !NaN) {
       let sqRt = Math.sqrt(messageInput.value).toFixed(2)
       paragraphOne.innerHTML = `You: ${messageInput.value}`
@@ -51,6 +53,8 @@ function showBotResponse() {
       paragraphOne.innerHTML = `You: ${messageInput.value}`
       paragraphTwo.innerHTML = `Bot: I do not understand`
     }
+    instructionsParagraph.style.display = "block"
   }
+  
   messageInput.value = ""
 }
