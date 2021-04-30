@@ -1,0 +1,1 @@
+This "chatbot" app allows a user to input 1 of 3 commands to which the "chatbot" will respond to.
